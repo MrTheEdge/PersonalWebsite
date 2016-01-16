@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../assets/media/img/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu);
+		  html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        border: 0;
+        overflow: hidden; /*  Disable scrollbars */
+        display: block;  /* No floating content on sides */
+        font-family: 'Ubuntu', sans-serif;
+		  }
+
+      canvas[resize] {
+          width: 100%;
+          height: 100%;
+          display: block;
+	        position: absolute;
+          background-color: #fcfcfc;
+      }
+
+      .container {
+        display: block;
+      }
+	  </style>
+
+    <title>Projects n' Stuff</title>
+
+  </head>
+  <body>
+    <!-- <img id="building" src="../assets/media/img/buildings.jpg" style="display: none;"> -->
+    <canvas id="canvas" resize stats hidpi="off" ></canvas>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-3 col-sm-3 col-lg-offset-4 col-md-offset-5 col-sm-offset-5">
+          <h1>Heighway Dragon</h1>
+          <p>A fractal resembling a dragon. <a href="https://en.wikipedia.org/wiki/Dragon_curve" target="_blank">More info.</a></p>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../assets/js/paper-full.js"></script>
+    <script type="text/paperscript" src="http://ejschroeder.me/assets/js/dragon_curve.pjs" canvas="canvas"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-70427574-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </body>
+</html>

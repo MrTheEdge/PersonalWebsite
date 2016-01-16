@@ -1,0 +1,78 @@
+var dragPath = new Path(new Point(.5 * view.center.x, .5 * view.center.y));
+dragPath.strokeColor = 'black';
+var currentOrder = 1;
+var running = true;
+var turn;
+
+dragPath.lineBy(0, -7);
+
+var prevDirection = 0;
+var thisFrame = true;
+function onFrame(event){
+  if ( currentOrder < 100000 && running){
+    turn = getDirection(currentOrder);
+    switch (prevDirection){
+      case 0:
+        if (turn == 0){
+          dragPath.lineBy(-7, 0);
+          prevDirection = 3;
+        } else {
+          dragPath.lineBy(7, 0);
+          prevDirection = 1;
+        }
+        break;
+      case 1:
+        if (turn == 0){
+          dragPath.lineBy(0, -7);
+          prevDirection = 0;
+        } else {
+          dragPath.lineBy(0, 7);
+          prevDirection = 2;
+        }
+        break;
+      case 2:
+        if (turn == 0){
+          dragPath.lineBy(7, 0);
+          prevDirection = 1;
+        } else {
+          dragPath.lineBy(-7, 0);
+          prevDirection = 3;
+        }
+        break;
+      case 3:
+        if (turn == 0){
+          dragPath.lineBy(0, 7);
+          prevDirection = 2;
+        } else {
+          dragPath.lineBy(0, -7);
+          prevDirection = 0;
+        }
+        break;
+    }
+    currentOrder++;
+  }
+}
+
+function onKeyDown(event){
+  if (event.character == 's'){
+    dragPath.smooth();
+  }
+  if (event.character == 'p'){
+    running = !running;
+  }
+}
+
+function getDirection(n){
+  var k = n;
+  while ( k % 2 == 0){
+    k = k >> 1;
+  }
+  var mod = k % 4;
+  if (mod == 3){ // Left nth turn
+    return 1; // 90 degree left turn
+  }
+  if (mod == 1){ // Right nth turn
+    return 0; // 90 degree turn right
+  }
+  return -1;
+}
