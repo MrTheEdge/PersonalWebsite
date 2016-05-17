@@ -13,10 +13,6 @@ footer {
   text-align: center;
 }
 
-.panel-body {
-  text-align: center;
-}
-
 .container {
   display: block;
 }
@@ -30,9 +26,11 @@ footer {
   font-weight: bold;
 }
 
-.result-value {
+.calculated-result {
   text-align: center;
+  font-size: 2.5em;
 }
+
 
 #showInfoBtn {
   font-size: .75em;

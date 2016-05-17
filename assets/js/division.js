@@ -58,9 +58,7 @@ divisionApp.service('Stats', function(Util){
       var stdDamage, critDamage, hsDamage, hsCritDamage;
       var totalDamagePerMag;
       this.computedStats.adjMagSize = Util.modifiedMagSize(this.baseStats.magSize, this.baseStats.hsChance, this.baseStats.oneIsNone);
-      console.log("Adj. Mag Size: ", this.computedStats.adjMagSize);
       hsHits = Util.hsPerMag(this.computedStats.adjMagSize, this.baseStats.hsChance);
-      console.log("HS Hits: ", hsHits);
       stdHits = this.computedStats.adjMagSize - hsHits;
       // Work out crits for each type of hit (hs vs standard)
       critHits = Util.crits(stdHits, this.baseStats.critChance);
