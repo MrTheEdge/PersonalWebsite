@@ -1,4 +1,4 @@
-var ASCII_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+var ASCII_STRING = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*-=_+';
 
 $('#generateBtn').click(function(){
   var txt = $('#messageInput').val();
@@ -36,18 +36,34 @@ $('#keyCopyBtn').click(function(){
 $('#modal-content').on('shown.bs.modal', function() {
     $("#copyArea").select();
     $("#copyArea").focus();
-})
+});
 
-function decodeString(string){
-  try {
-    return window.atob(string);
-  } catch(e) {
-    return string;
-  }
+function hexToDecimal(string) {
+    return parseInt(string, 16);
 }
 
-function encodeString(string){
-  return window.btoa(string);
+function decimalToHex(num){
+  return num.toString(16);
+}
+
+function decodeString(hex){
+  var arr = hex.split(' ');
+  var str = '';
+  var char;
+
+  for (var i = 0; i < arr.length; i++){
+    char = String.fromCharCode(hexToDecimal(arr[i]));
+    str += char;
+  }
+  return str;
+}
+
+function encodeString(cipherText){
+  var str = '';
+  for (var i = 0; i < cipherText.length; i++){
+    str += decimalToHex(cipherText.charCodeAt(i)) + ' ';
+  }
+  return str.trim();
 }
 
 function genKeyString(length){
@@ -78,6 +94,8 @@ function cipherText(message, key){
   }
   return result;
 }
+
+
 
 // $('#copyKeyBtn').click( function(){
 //   window.prompt("Copy to clipboard: Ctrl+C, Enter", "BLAH BLAH BLAH");

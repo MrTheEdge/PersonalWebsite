@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu);
+
+@font-face {
+  font-family: 'Borda';
+  src: url('../assets/media/borda.ttf');
+}
+
+/*html, body {
+  font-family: 'Ubuntu', sans-serif;
+}*/
+
+footer {
+  text-align: center;
+}
+
+.panel-body {
+  text-align: center;
+}
+
+.container {
+  display: block;
+}
+
+.modal-content {
+  padding: 5px;
+}
+
+.result-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.result-value {
+  text-align: center;
+}
+
+#showInfoBtn {
+  font-size: .75em;
+}
+#showInfoBtn:hover {
+  color: #000;
+}
